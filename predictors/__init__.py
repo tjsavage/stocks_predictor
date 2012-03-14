@@ -1,11 +1,9 @@
 from base_predictor import BasePredictor
 from simple_history_predictor import SimpleHistoryPredictor
-from accurate_predictor import AccuratePredictor
 
 predictors = {
     'simple_history_predictor': SimpleHistoryPredictor(),
     'base_predictor': BasePredictor(),
-    'accurate_predictor': AccuratePredictor(0.5),
 }
 
 def predictors_string():

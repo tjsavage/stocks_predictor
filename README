@@ -2,3 +2,12 @@ Example usage:
 
 python test_predictor.py --help #shows options
 python test_predictor.py -a .75 #runs basic test with predictor that's right 70% of the time
+
+
+TODO:
+	-Refactoring pystockquotes to be object-oriented!!!
+	-Caching/bulk requesting daily stock information, so we don't have to do one request for each stock for each day. Could be done in pystockquotes/company.py or pystockquotes/sources/*
+	-Threading of requests, experiments.
+	-More statistical analysis on experiments (eg p-value, ROC-analysis http://en.wikipedia.org/wiki/Receiver_operating_characteristic, etc.)
+	-More predictors
+
