@@ -61,9 +61,9 @@ class ExperimentResult:
             result = 1.0
             for d in self.deltas:
                 result = result * (1 + d)
-            return result
+            return result - 1.0
         
-        def predicted_yearly_profit(self, initial_value):
+        def predicted_yearly_value(self, initial_value):
             return math.pow(1.0 + self.mean(), 270) * initial_value
                 
         def __str__(self):
@@ -71,7 +71,7 @@ class ExperimentResult:
             result += "Return: %f percent \n" % (self.compounded_return() * 100)
             result += "Mean: %f \n Stdev: %f \n Profit on $10,000: $%f" % (self.mean(), self.stdev(), self.profit(10000))
             result += "\n Avg daily profit on $10,000: $%f" % (self.avg_daily_profit(10000))
-            result += "\nPredicted yearly profit on $10,000: $%f" % (self.predicted_yearly_profit(10000))
+            result += "\nPredicted value after a year on $10,000: $%f" % (self.predicted_yearly_value(10000))
             if self.time_delta:
                 result += "\n Elapsed: %s" % str(self.time_delta)
             return result
@@ -161,11 +161,11 @@ class Experiment:
         print str(self.result)
         
     def __str__(self):
-        return "Experiment: Investing in %s using %s, %d day sample, population beginning %s over %d days." % (str(self.company_list),
+        return "Experiment: Investing in %s using %s, %d day sample, %d day population beginning %s." % (str(self.company_list),
                                                                         str(self.predictor),
                                                                         self.sample_days,
-                                                                        str(self.start_date),
-                                                                        self.day_range)
+                                                                        self.day_range,
+                                                                        str(self.start_date))
                                                                     
         
 

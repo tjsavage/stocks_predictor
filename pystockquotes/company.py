@@ -13,6 +13,13 @@ class Company:
 
 	def closing_price(self, date=datetime.datetime.today()):
 		return quotes.closing_price(self.symbol, date)
+	
+	def daily_change(self, date=datetime.datetime.today()):
+	    opening = self.opening_price(date)
+	    if opening is not None:
+	        return self.closing_price(date) - opening
+	    else:
+	        return None
 
 	def __str__(self):
 		return self.symbol
